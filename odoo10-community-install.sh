@@ -33,9 +33,6 @@ echo 'LC_ALL=C.UTF-8' >> /etc/environment
 echo -e "\n-Step 3: Installing PostgreSQL Server ===>"
 sudo apt-get install postgresql -y
 
-echo -e "\n PostgreSQL $PG_VERSION Settings  ===>"
-sudo sed -i s/"#listen_addresses = 'localhost'"/"listen_addresses = '*'"/g /etc/postgresql/9.4/main/postgresql.conf
-
 echo -e "\n Creating the ODOO PostgreSQL User =====>"
 sudo su - postgres -c "createuser -s $ODOO_USER" 2> /dev/null || true
 
